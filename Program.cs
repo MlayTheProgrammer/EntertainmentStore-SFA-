@@ -13,13 +13,15 @@ namespace Homework1_Entertainment_Store
             for (int day = 1; day <= FINAL_DAY; day++)
             {
               s.Day();
-                if(s.night < 35)
+                //we don't run the final night
+                if(day < FINAL_DAY)
                 {
                     s.Night();
                 }
 
-            }     
-            s.Report(); // Im not sure why you removed this but I brought it back up since it was in the requirements 
+            }
+            Console.WriteLine("");
+            s.Report();
         }
     }
 }
