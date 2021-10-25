@@ -26,9 +26,9 @@ namespace Homework1_Entertainment_Store
         public string GetName()
         {
             // Returns the first name of the customer.
-
             return this.name;
         }
+
         public bool CanRent(int storeStock)
         {
             // Returns whether or not the customer is allowed to rent games:
@@ -38,6 +38,7 @@ namespace Homework1_Entertainment_Store
 
             return ((MAX_RENTALS - numGamesRented()) <= storeStock) && (this.numGamesToRent <= storeStock) && ((MAX_RENTALS - numGamesRented()) >= this.numGamesToRent);
         }
+
         public void RollBehavior()
         {
             // Generates the number of games and nights that a customer will rent, and assigns them.
@@ -52,6 +53,7 @@ namespace Homework1_Entertainment_Store
 
             return new Rental(day, this.numGamesToRent, this.numNightsToRent, this.name);
         }
+
         public double PayFor(IRental r)
         {
             // Adds the given rental to the list of rentals that the customer has, then returns the cost (paying for it).
@@ -59,6 +61,7 @@ namespace Homework1_Entertainment_Store
             this.rentals.Add(r);
             return r.GetTotalCost();
         }
+
         public List<IRental> ReturnGames(int day)
         {
             // Iterates through all rentals and removes and adds to a list any that are due on the given day, then returns them.
@@ -98,6 +101,5 @@ namespace Homework1_Entertainment_Store
             }
             return count;
         }
-
     }
 }

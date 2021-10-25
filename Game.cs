@@ -4,6 +4,7 @@ namespace Homework1_Entertainment_Store
 {
     public class Game : IGame
     {
+
         private string Name;
         private double Price;
         private EGenre Genre;
