@@ -15,8 +15,6 @@ namespace Homework1_Entertainment_Store
             this.customerNames = new List<string>();
             try
             {
-                Console.WriteLine("\nHere Are The Customers That Went To The Store: ");
-
                 cNames = System.IO.File.ReadAllLines("names.txt");
             }
             catch (System.IO.FileNotFoundException)
@@ -36,10 +34,12 @@ namespace Homework1_Entertainment_Store
         {
             switch (this.rand.Next(1, 4))
             {
+                
                 case 1: return new Customer(RandCustName(), new Newbie());
                 case 2: return new Customer(RandCustName(), new Professional());
                 default: return new Customer(RandCustName(), new Hardcore());
             }
+            Console.WriteLine(ToString());
         }
         private string RandCustName()
         {
@@ -76,7 +76,7 @@ namespace Homework1_Entertainment_Store
             }
             if (gNames != null)
             {
-                Console.WriteLine("Here Are The Games That Are In The Store: ");
+
                 foreach (string name in gNames)
                 {
                     this.gameNames.Add(name);

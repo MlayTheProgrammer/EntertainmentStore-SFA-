@@ -12,7 +12,7 @@ namespace Homework1_Entertainment_Store
             this.Name = name;
             this.Price = price;
             this.Genre = genre;
-            Console.WriteLine("Game<" + this.Name + ", " + "Category<" + this.Genre + ", " + this.Price + ">>");
+
 
         }
 

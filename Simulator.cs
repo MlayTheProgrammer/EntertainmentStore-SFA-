@@ -11,14 +11,14 @@ namespace Homework1_Entertainment_Store
         private int NUM_CUSTOMERS = 10;
         private int NUM_GAMES = 20;
         private int day;
-        private int night;
+        public int night;
         public Simulator()
         {
             this.day = 1;
             this.night = 1;
+
             this.store = new Store();
             this.customers = new List<ICustomer>();
-
             //populate customer list and store stock
 
             //set prices that the factory will use to produce games
@@ -41,33 +41,62 @@ namespace Homework1_Entertainment_Store
                 this.customers.Add(cf.CreateCustomer());
             }
         }
-        public void Tick()
+        public void test() 
         {
-            for (int i = 0; i <= 1; i++)
+            Console.WriteLine("All The Games In Stock: \n");
+            foreach (IGame g in store.GetStock())
             {
-                if (i == 0)
-                {
-                    Console.WriteLine("\nStart of Day " + this.day + ":\n");
-                }
-                if (i == 1)
-                {
-                    if (this.night < 35)
-                    {
-                        Console.WriteLine("\nStart of night " + this.night + ":\n");
-                    }
-                }
-                //return any games at the start of each day
-                foreach (ICustomer c in this.customers)
+        
+                Console.WriteLine(g);
+         
+            }
+            Console.WriteLine("\nAll The Customers: \n");
+            foreach (ICustomer c in this.customers)
+            {
+                    Console.WriteLine( c); 
+            }
+
+        }
+        public void Day()
+        {
+            // Runs one day of the simulation.
+
+            //return any games at the start of each day
+            Console.WriteLine("\nStart of day " + this.day + ":");
+            Returns();
+            Console.WriteLine("\nEnd of day " + this.day + ":");
+            Console.WriteLine("--------------");
+           
+            day++;
+           
+        }
+        public void Night()
+        {
+            Console.WriteLine("Start of night " + this.night + ":");
+            //rent games
+
+            Rentals();
+            Console.WriteLine("End of night " + this.night + ":");
+            night++;
+        }
+        private void Returns()
+        {
+            // Procedure for customers returning games.
+            foreach (ICustomer c in this.customers)
             {
                 List<IRental> returns = c.ReturnGames(this.day);
                 foreach (IRental r in returns)
                 {
                     this.store.Restock(r);
-                    Console.WriteLine(c+": RENTAL RETURN:");
-                    Console.WriteLine(r+"\n");
+                    Console.WriteLine(c + ": RENTAL RETURN:");
+                    Console.WriteLine(r + "\n");
                 }
             }
-            //rent games
+        }
+
+        private void Rentals()
+        {
+            // Procedure for customers renting games from the store.
             if (store.HasGames())
             {
                 //put a random selection of customers into a list
@@ -91,35 +120,24 @@ namespace Homework1_Entertainment_Store
                         //they enter store, rent some games, and pay
                         IRental r = c.CreateRental(this.day);
                         this.store.PopulateRental(r);
-                        Console.WriteLine(c+" : CREATED RENTAL:");
-                        Console.WriteLine(r+"\n");
+
+                        Console.WriteLine(c + " : CREATED RENTAL:");
+                        Console.WriteLine(r + "\n");
                         store.AcceptPayment(c.PayFor(r));
                     }
-                        else
-                        {
-                            Console.WriteLine(c + "  Games Rented at Maximum Capacity "); // Reggie Coded this
-
-                        }
-                    }
-                    if (i == 0)
+                    else
                     {
-                        Console.WriteLine("End of Day " + this.day);
-                    }
-                    if (i == 1)
-                    {
-                        if (this.night < 35)
-                        {
-                            Console.WriteLine("End of night " + this.night);
-                        }
+                        Console.WriteLine(c + "  Games Rented at Maximum Capacity "); // Reggie Coded this
 
                     }
-                    Console.WriteLine("----------------");
                 }
-
             }
-            day++;
-            night++;
+            else
+            {
+                Console.WriteLine("Currently no games are available, please come again later");
+            }
         }
+
         public void Report()
         {
             Console.WriteLine("GAMES STILL IN STORE:");

@@ -8,14 +8,19 @@ namespace Homework1_Entertainment_Store
         {
             Simulator s = new Simulator();
             int FINAL_DAY = 35;
-
-            int day = 0;
-            while (++day <= FINAL_DAY)
+       
+            s.test();
+            for (int day = 1; day <= FINAL_DAY; day++)
             {
-                s.Tick();
-            }
-            s.Report(); // Im not sure why you removed this but I brought it back up since it was in the requirements 
+              s.Day();
+                if(s.night < 35)
+                {
+                    s.Night();
+                }
 
+            }     
+            s.Report(); // Im not sure why you removed this but I brought it back up since it was in the requirements 
         }
     }
 }
+

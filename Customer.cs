@@ -18,7 +18,7 @@ namespace Homework1_Entertainment_Store
             this.behavior = behavior;
             this.rentals = new List<IRental>();
             RollBehavior();
-            Console.WriteLine("Customer<" + this.name + ", " + this.behavior.GetType().Name + ">"); 
+          //  Console.WriteLine("Customer<" + this.name + ", " + this.behavior.GetType().Name + ">"); 
         }
         public string GetName()
         {
