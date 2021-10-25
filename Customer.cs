@@ -66,18 +66,7 @@ namespace Homework1_Entertainment_Store
             }
             return returns;
         }
-        /*public override string ToString()
-        {
-            string games = "";
-            foreach (IRental r in rentals)
-            {
-                foreach (IGame g in r.GetGames())
-                {
-                    games += g.GetName() + ", ";
-                }
-            }
-            return name + ": " + games.Substring(0, (games.Length - 2 < 0 ? 0 : games.Length - 2));
-        }*/
+
         public override string ToString()
         {
             return "Customer<" + this.name + ", "+this.behavior.GetType().Name+">";
