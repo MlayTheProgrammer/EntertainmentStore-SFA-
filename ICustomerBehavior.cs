@@ -1,4 +1,5 @@
-﻿namespace Homework1_Entertainment_Store
+﻿//Coded by Carl
+namespace Homework1_Entertainment_Store
 {
     public interface ICustomerBehavior
     {

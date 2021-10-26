@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿//Coded by Reggie
+using System.Collections.Generic;
 
 namespace Homework1_Entertainment_Store
 {

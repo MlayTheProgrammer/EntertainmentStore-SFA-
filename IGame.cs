@@ -1,4 +1,5 @@
-﻿namespace Homework1_Entertainment_Store
+﻿//Coded by Reggie
+namespace Homework1_Entertainment_Store
 {
     public interface IGame
     {

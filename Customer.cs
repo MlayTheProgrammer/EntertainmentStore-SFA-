@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System;
+﻿// Coded by Reggie
+using System.Collections.Generic;
 
 namespace Homework1_Entertainment_Store
 {
@@ -26,6 +26,7 @@ namespace Homework1_Entertainment_Store
         public string GetName()
         {
             // Returns the first name of the customer.
+
             return this.name;
         }
 

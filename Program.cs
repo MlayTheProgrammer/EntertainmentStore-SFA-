@@ -18,7 +18,6 @@ namespace Homework1_Entertainment_Store
                 {
                     s.Night();
                 }
-
             }
             Console.WriteLine("");
             s.Report();

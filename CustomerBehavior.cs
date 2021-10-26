@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//Coded by Carl
+using System;
 
 namespace Homework1_Entertainment_Store
 {
 
         public class Newbie : ICustomerBehavior
         {
+            //=======METHODS======
             public int GenNumGamesToRent()
             {
                 return new Random().Next(1, 3);
@@ -18,6 +18,7 @@ namespace Homework1_Entertainment_Store
         }
         public class Professional : ICustomerBehavior
         {
+            //=======METHODS======
             public int GenNumGamesToRent()
             {
                 return new Random().Next(1, 4);
@@ -29,6 +30,7 @@ namespace Homework1_Entertainment_Store
         }
         public class Hardcore : ICustomerBehavior
         {
+            //=======METHODS======
             public int GenNumGamesToRent()
             {
                 return 3;

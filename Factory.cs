@@ -1,6 +1,6 @@
-﻿using System;
+﻿//Coded by Carl
+using System;
 using System.Collections.Generic;
-
 
 namespace Homework1_Entertainment_Store
 {
@@ -14,6 +14,7 @@ namespace Homework1_Entertainment_Store
         public CustomerFactory()
         {
             // Reads in a list of names from names.txt and stores them in customer names.
+
             rand = new Random();
             string[] cNames = null;
             this.customerNames = new List<string>();
@@ -38,6 +39,7 @@ namespace Homework1_Entertainment_Store
         public Customer CreateCustomer()
         {
             // Creates a customer object and assigns it a random name and behavior behavior, and returns it.
+
             switch (this.rand.Next(1, 4))
             {
                 
@@ -51,6 +53,7 @@ namespace Homework1_Entertainment_Store
         private string RandCustName()
         {
             // Selects a random name from the stored list of customer names, removes it from the list, and returns it.
+
             if (this.customerNames.Count == 0)
             {
                 throw new Exception("Attempting to generate a customer name when no names remain.");
@@ -73,6 +76,7 @@ namespace Homework1_Entertainment_Store
         public GameFactory(Dictionary<EGenre, double> prices)
         {
             // Reads in a list of names from game.txt and stores them in game names, and stores the given dictionary of genres and prices.
+
             rand = new Random();
             this.prices = prices;
             string[] gNames = null;
@@ -99,7 +103,8 @@ namespace Homework1_Entertainment_Store
         //=======METHODS======
         public Game CreateGame()
         {
-            // Creates a game object, assigns it a random name and genre/price, and returns t.
+            // Creates a game object, assigns it a random name and genre/price, and returns it.
+
             int temp = this.rand.Next(0, prices.Count);
             return new Game(RandGameName(), prices[(EGenre)temp], (EGenre)temp);
         }
@@ -108,6 +113,7 @@ namespace Homework1_Entertainment_Store
         private string RandGameName()
         {
             // Selects a random name from the stored list of games names, removes it from the list, and returns it.
+
             if (this.gameNames.Count == 0)
             {
                 throw new Exception("Attempting to generate a game name when no names remain.");
